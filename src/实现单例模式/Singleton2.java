@@ -27,7 +27,7 @@ private volatile static Singleton2 instance=null;
 public static Singleton2 getInstance()
 {
     if(instance==null) { //使用volatile的原因是。当线程1进入创建对象的锁里面的时候，此时对象还没有创建完，但是也不是null，此时如果线程2进入，那么它就以为
-        //instance不是null，直接返回，就会报错。使用volatile保证线程可见，就不会出现这样的错误。
+        //instance不是null，直接返回，就会报错。使用volatile保证线程可见，就不会出现这样的错误。。
         synchronized (Singleton2.class) {
             if (instance == null)
                 instance = new Singleton2();
